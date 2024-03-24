@@ -8,7 +8,7 @@ from pytube.cli import on_progress
 
 class App(ctk.CTk):
     def __init__(self):
-        super().__init__()
+        super().__init__(fg_color='black')
         self.geometry("700x500")
         self.title("Youtube Downloader")
         self._set_appearance_mode("dark")
@@ -21,7 +21,7 @@ class App(ctk.CTk):
         im_ctk = ctk.CTkImage(light_image=im, dark_image=im)
 
         # creating widget
-        self.frame = ctk.CTkFrame(self, bg_color="#242424", fg_color="#242424")
+        self.frame = ctk.CTkFrame(self, fg_color="transparent")
 
         self.link = ctk.StringVar()
         ctk.CTkEntry(
@@ -35,7 +35,7 @@ class App(ctk.CTk):
             text="Download",
             fg_color="#348ceb",
             image=im_ctk,
-            command=lambda:threading.Thread(target=self.Yt).start(),
+            command=lambda:threading.Thread(target=self.Yt).start,
         ).pack(pady=6)
         
 
@@ -43,7 +43,7 @@ class App(ctk.CTk):
 
         # menu frame
 
-        self.menu_frame = ctk.CTkFrame(self, fg_color="#242424", corner_radius=0)
+        self.menu_frame = ctk.CTkFrame(self, fg_color="transparent",  corner_radius=0)
         self.menu_frame.columnconfigure((0, 1, 2), weight=1, uniform="a")
         self.menu_frame.rowconfigure(0, weight=1)
 
