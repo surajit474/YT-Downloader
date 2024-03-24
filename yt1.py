@@ -16,7 +16,6 @@ class App(ctk.CTk):
         self.columnconfigure((0, 1, 2), weight=1, uniform="a")
         self.rowconfigure(0, weight=1, uniform="a")
         self.rowconfigure((1, 2), weight=2, uniform="a")
-
         # for displaying image
         im = Image.open("download.png")
         im_ctk = ctk.CTkImage(light_image=im, dark_image=im)
@@ -36,8 +35,9 @@ class App(ctk.CTk):
             text="Download",
             fg_color="#348ceb",
             image=im_ctk,
-            command=t1.start,
+            command=lambda:threading.Thread(target=self.Yt).start(),
         ).pack(pady=6)
+        
 
         self.frame.grid(column=1, row=1, sticky="nsew")
 
